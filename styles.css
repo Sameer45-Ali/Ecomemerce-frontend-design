@@ -55,7 +55,6 @@ body {
 .btn.light { background: #fff; border: 1px solid #ccc; }
 .btn.outline { border: 1px solid #ccc; background: transparent; }
 .btn.full { width: 100%; }
-
 .menu {
   display: flex;
   align-items: center;

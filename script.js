@@ -1,12 +1,71 @@
-document.getElementById('searchBtn').addEventListener('click', function(){
-  const q = document.getElementById('searchInput').value.trim();
-  alert(q ? 'Search: ' + q : 'Please type a search query');
-});
-document.getElementById('learnMore').addEventListener('click', function(){
-  alert('Learn more clicked — this is a static demo page.');
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Inquiry form
+  const form = document.querySelector('.inquiry-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('Inquiry submitted (simulated).', 'default');
+  });
+
+  // Cart count update
+  if (typeof updateCartCount === "function") updateCartCount();
+
+  // Place order button
+  const placeOrderBtn = document.getElementById("place-order");
+  placeOrderBtn?.addEventListener("click", () => {
+    showToast('Order placed! (simulated)', 'success');
+    localStorage.removeItem('ecom_cart_v1');
+    if (typeof updateCartCount === "function") updateCartCount();
+  });
+
+  // Search button
+  document.getElementById('searchBtn')?.addEventListener('click', () => {
+    const q = document.getElementById('searchInput').value.trim();
+    alert(q ? 'Search: ' + q : 'Please type a search query');
+  });
+
+  // Learn more button
+  document.getElementById('learnMore')?.addEventListener('click', () => {
+    alert('Learn more clicked — this is a static demo page.');
+  });
 });
 
-// countdown
+// Toast function
+function showToast(message, type = "default", duration = 3000) {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+  const toast = document.createElement("div");
+  toast.className = "toast " + (type === "success" ? "success" : type === "error" ? "error" : "");
+  toast.innerHTML = `
+    <div class="msg">${message}</div>
+    <button class="close-btn" aria-label="Close">&times;</button>
+  `;
+  container.appendChild(toast);
+  const remove = () => {
+    toast.style.opacity = "0";
+    setTimeout(() => toast.remove(), 200);
+  };
+  toast.querySelector(".close-btn")?.addEventListener("click", remove);
+  setTimeout(remove, duration);
+}
+//login 
+document.querySelector(".btn.outline.full")?.addEventListener("click", () => {
+  window.location.href = "login.html"; 
+});
+
+
+// Sticky header scroll effect
+(function () {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  window.addEventListener("scroll", () => {
+    const current = window.scrollY;
+    if (current > 50) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
+})();
+
+// Countdown timer
 (function(){
   const end = new Date(Date.now() + 4*24*60*60*1000 + 13*60*60*1000 + 34*60*1000 + 56*1000);
   function tick(){
@@ -21,5 +80,6 @@ document.getElementById('learnMore').addEventListener('click', function(){
     document.getElementById('mins').textContent = String(m).padStart(2,'0');
     document.getElementById('secs').textContent = String(s).padStart(2,'0');
   }
-  tick(); setInterval(tick, 1000);
+  tick(); 
+  setInterval(tick, 1000);
 })();

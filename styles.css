@@ -21,6 +21,9 @@ body {
 .topbar {
   padding: 18px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
+.lang{
+  border:none;
+}
 }
 .topbar-inner {
   display: flex;
@@ -85,6 +88,7 @@ body {
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
+
 .hero {
   display: flex;
   background: linear-gradient(90deg,#7fd6b6,#78d3b2);
@@ -92,6 +96,10 @@ body {
   padding: 28px;
   align-items: center;
   gap: 20px;
+    background-image: url('images/tech/5.jpg');
+  background-size: cover;       /* Make it fill the element */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-position: center;  /* Keep it centered */
 }
 .hero-text { flex: 1; }
 .hero-text h1 { font-size: 32px; }
@@ -208,14 +216,19 @@ body {
 .prod-info { display: flex; flex-direction: column; gap: 6px; }
 .prod-title { font-weight: 700; color: #111; font-size: 14px; }
 .prod-price { color: var(--muted); font-size: 13px; }
+/* login */ 
+
 
 /* ========== Recommended section ========== */
 .recommended { 
   display: flex;
   align-items: center;
-  
-  margin-top: 22px; }
-.recommended h3 { margin: 0 0 10px; color: #222; }
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.recommended h3 {
+ margin: 0 0 10px; color: #222; }
 
 /* horizontal row that wraps, with scroll on small screens */
 .recommended-row {
@@ -284,7 +297,7 @@ body {
   border-top: 1px solid #ddd;
 }
 
-/* Use a grid so columns line up evenly and brand column stays narrower */
+/*  grid so columns line up evenly and brand column stays narrower */
 .footer-top {
   display: grid;
   grid-template-columns: 1.6fr repeat(5, 1fr);
@@ -421,4 +434,101 @@ body {
   .footer-bottom {
     padding: 16px;
   }
+}
+/* ===== Login Page Styles ===== */
+.auth-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.auth-card h2,
+.auth-card h3 {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.field input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+.divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  background: #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  min-width: 200px;
+}
+
+.toast.success { background: #28a745; }
+.toast.error { background: #d23e3e; }
+
+.toast .close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
 }

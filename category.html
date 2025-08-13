@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" /><title>Category</title><link rel="stylesheet" href="css/styles.css" /></head>
+<body>
+<header class="site-header">
+  <div class="top-bar">
+    <div class="left">
+      <div class="logo">🔒 Brand</div>
+      <div class="search-wrapper">
+        <input class="search-input" placeholder="Search within category..." />
+        <select class="category-select"><option>All category</option></select>
+        <button class="btn primary">Search</button>
+      </div>
+    </div>
+    <div class="right">
+      <div class="icon">Profile</div><div class="icon">Orders</div><div class="icon cart">Cart (<span id="cart-count">0</span>)</div>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <div class="nav-left"><div class="nav-item dropdown">All category</div><div class="nav-item">Hot offers</div></div>
+    <div class="nav-right"><div class="nav-item"> <select class="country"> <option> united state </option> <option>USD </option> <option> paktistan </option></div> </div></select> <div class="nav-item">Ship</div></div>
+  </div>
+</header>
+<main class="container">
+  <div class="breadcrumb-row">
+    <div class="breadcrumbs"><a href="index.html">Home</a> &gt; Electronics &gt; Smartphones</div>
+    <div class="listing-controls">
+      <div class="items-count">12,911 items in <strong>Mobile accessory</strong></div>
+      <label class="verified-checkbox"><input type="checkbox" checked /> Verified only</label>
+      <div class="sort-wrapper">
+        <select class="sort-select">
+          <option>Featured</option><option>Price: Low to High</option><option>Price: High to Low</option>
+        </select>
+      </div>
+      <div class="view-toggle">
+        <div class="toggle-btn active">☰</div><div class="toggle-btn">▦</div>
+      </div>
+    </div>
+  </div>
+  <div class="category-page">
+    <aside class="sidebar">
+      <div class="filter-section">
+        <div class="category-title">Brands</div>
+        <div class="checkbox-list">
+          <label><input type="checkbox" /> Samsung</label>
+          <label><input type="checkbox" /> Apple</label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="category-title">Price range</div>
+        <div class="price-range">
+          <div class="range-inputs">
+            <div class="range-box"><label class="small-label">Min</label><input type="number" placeholder="0" /></div>
+            <div class="range-box"><label class="small-label">Max</label><input type="number" placeholder="1000" /></div>
+          </div>
+          <input type="range" class="slider" min="0" max="1000" />
+          <button class="btn secondary apply-btn">Apply</button>
+        </div>
+      </div>
+    </aside>
+    <section class="listing-section">
+      <div class="product-list"></div>
+      <div class="pagination">
+        <div class="show-count">Show <select><option>10</option><option>20</option></select></div>
+        <div class="pages"><button class="page-btn">1</button><button class="page-btn">2</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="brand"><div class="logo">🔒 Brand</div><p>Best info here</p></div>
+    <div class="col"><h4>About</h4><p>About Us</p></div>
+    <div class="col"><h4>Partnership</h4><p>Partners</p></div>
+    <div class="col"><h4>Information</h4><p>Help Center</p></div>
+    <div class="col"><h4>For users</h4><p>Login</p></div>
+    <div class="col"><h4>Get app</h4><p>App Store</p></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="newsletter"><span>Subscribe</span><div class="subscribe-form"><input placeholder="Email"/><button class="btn">Subscribe</button></div></div>
+    <div class="copyright">©2023 Ecommerce</div>
+  </div>
+</footer>
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script src="js/filters.js"></script>
+</body>
+</html>

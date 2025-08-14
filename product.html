@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="product-page">
+
+    <!-- Header -->
+    <header>
+        <div class="logo">My Store</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Shop</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- Main Product Section -->
+    <main class="product-container">
+        <!-- Left: Images -->
+        <div class="product-images">
+            <img id="current-img" src="images/product1-main.jpg" alt="Product" class="main-image">
+            <div class="thumbnails">
+                <img src="images/product1-thumb1.jpg" data-src="images/product1-main.jpg" class="thumb selected" alt="Thumb 1">
+                <img src="images/product1-thumb2.jpg" data-src="images/product1-2.jpg" class="thumb" alt="Thumb 2">
+                <img src="images/product1-thumb3.jpg" data-src="images/product1-3.jpg" class="thumb" alt="Thumb 3">
+            </div>
+        </div>
+
+        <!-- Right: Details -->
+        <div class="product-details">
+            <h1 class="product-title">Awesome Product</h1>
+            <p class="price">
+                <span class="price-current">$49.99</span>
+                <span class="price-old">$69.99</span>
+            </p>
+
+            <div class="quantity-control">
+                <button id="decrease-qty">-</button>
+                <input type="number" id="qty" value="1" min="1">
+                <button id="increase-qty">+</button>
+            </div>
+
+            <button id="add-to-cart" class="btn">Add to Cart</button>
+        </div>
+    </main>
+
+    <!-- Tabs Section -->
+    <section class="product-info-tabs">
+        <div class="tabs">
+            <button class="tab-btn active" data-target="description">Description</button>
+            <button class="tab-btn" data-target="reviews">Reviews</button>
+        </div>
+
+        <div id="description" class="tab-content">
+            <h2>Product Description</h2>
+            <p>This product is made from high-quality materials and designed for maximum comfort and style.</p>
+        </div>
+
+        <div id="reviews" class="tab-content hidden">
+            <h2>Customer Reviews</h2>
+            <p>No reviews yet. Be the first to write one!</p>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

@@ -29,10 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert('Learn more clicked — this is a static demo page.');
   });
 
-  // Login redirect
-  document.querySelector(".btn.outline.full")?.addEventListener("click", () => {
-    window.location.href = "login.html"; 
-  });
+
 
   // Get category from URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -79,6 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+//login 
+document.getElementById("loginBtn").onclick = function() {
+    window.location.href = "login.html";
+};
+
 
 // Toast function stays outside — doesn’t need DOM ready
 function showToast(message, type = "default", duration = 3000) {
@@ -136,3 +138,42 @@ document.getElementById('categorySelect')?.addEventListener('change', function (
   tick(); 
   setInterval(tick, 1000);
 })();
+// script.js
+
+// Toast notification
+function showToast(message, type = "success") {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+
+// Update cart count in navbar
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    document.getElementById("cart-count").textContent = cart.length;
+}
+
+// Add product to cart
+function addToCart(product) {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Sticky header
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+});
+
+// On page load
+document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+});

@@ -1,5 +1,5 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+
   // Inquiry form
   const form = document.querySelector('.inquiry-form');
   form?.addEventListener('submit', (e) => {
@@ -28,9 +28,59 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('learnMore')?.addEventListener('click', () => {
     alert('Learn more clicked — this is a static demo page.');
   });
+
+  // Login redirect
+  document.querySelector(".btn.outline.full")?.addEventListener("click", () => {
+    window.location.href = "login.html"; 
+  });
+
+  // Get category from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get('category');
+
+  // Update breadcrumb
+  if (category) {
+      document.querySelector('.breadcrumbs').innerHTML =
+          `<a href="index.html">Home</a> &gt; ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+  }
+
+  // Load products dynamically
+  const productList = document.querySelector('.product-list');
+  if (productList) {
+    if (category === 'electronics') {
+        productList.innerHTML = `
+            <div class="product-card">
+                <img src="images/tech/7.jpg" alt="Laptop">
+                <h4>Laptop</h4>
+                <p>$499</p>
+            </div>
+            <div class="product-card">
+                <img src="images/tech/5.jpg" alt="Smart Watch">
+                <h4>Smart Watch</h4>
+                <p>$129</p>
+            </div>
+        `;
+    } else if (category === 'home') {
+        productList.innerHTML = `
+            <div class="product-card">
+                <img src="images/interior/1.jpg" alt="Sofa">
+                <h4>Sofa</h4>
+                <p>$299</p>
+            </div>
+            <div class="product-card">
+                <img src="images/interior/2.jpg" alt="Chair">
+                <h4>Chair</h4>
+                <p>$99</p>
+            </div>
+        `;
+    } else {
+        productList.innerHTML = `<p>Select a category to view products.</p>`;
+    }
+  }
+
 });
 
-// Toast function
+// Toast function stays outside — doesn’t need DOM ready
 function showToast(message, type = "default", duration = 3000) {
   const container = document.getElementById("toast-container");
   if (!container) return;
@@ -48,11 +98,6 @@ function showToast(message, type = "default", duration = 3000) {
   toast.querySelector(".close-btn")?.addEventListener("click", remove);
   setTimeout(remove, duration);
 }
-//login 
-document.querySelector(".btn.outline.full")?.addEventListener("click", () => {
-  window.location.href = "login.html"; 
-});
-
 
 // Sticky header scroll effect
 (function () {
@@ -64,6 +109,14 @@ document.querySelector(".btn.outline.full")?.addEventListener("click", () => {
     else header.classList.remove("scrolled");
   });
 })();
+document.getElementById('categorySelect')?.addEventListener('change', function () {
+  const selectedCategory = this.value;
+  if (selectedCategory) {
+    window.location.href = `category.html?category=${encodeURIComponent(selectedCategory)}`;
+  } else {
+    window.location.href = `category.html`;
+  }
+});
 
 // Countdown timer
 (function(){

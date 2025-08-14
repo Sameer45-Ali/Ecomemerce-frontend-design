@@ -544,3 +544,81 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+/* css for category */ 
+/* Category/listing */
+.breadcrumb-row{
+  margin:20px 0;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:0.85rem;
+  align-items:center;
+}
+.country{
+  border: none;
+
+}
+.listing-controls{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.items-count{white-space:nowrap;}
+.verified-checkbox{display:flex;align-items:center;gap:4px;}
+.sort-wrapper select{
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid #d1d9ee;
+  font-size:0.85rem;
+}
+.view-toggle{display:flex;gap:6px;}
+.toggle-btn{
+  padding:6px 10px;
+  border:1px solid #d1d9ee;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:0.85rem;
+}
+.toggle-btn.active{
+  background:#f0f7ff;
+  border-color: var(--blue);
+}
+.category-page{display:flex;gap:24px;}
+.listing-section{flex:1;}
+
+/* Sidebar filters */
+.filter-section{margin-bottom:24px;}
+.checkbox-list label,
+.radio-list label{display:block;margin-bottom:6px;font-size:0.85rem;cursor:pointer;}
+.see-all{margin-top:4px;font-weight:600;font-size:0.8rem;}
+.price-range .range-inputs{display:flex;gap:8px;margin-bottom:8px;}
+.range-box{flex:1;}
+.small-label{display:block;font-size:0.7rem;margin-bottom:4px;}
+.price-range .slider{width:100%;margin-bottom:8px;}
+.apply-btn{width:100%;}
+
+/* List item */
+.list-item{
+  display:flex;
+  background:#fff;
+  padding:16px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  gap:16px;
+  margin-bottom:16px;
+  align-items:flex-start;
+}
+.thumb{flex:0 0 120px;}
+.thumb img{width:100%;border-radius:8px;}
+.details{flex:1;padding:0;}
+.pricing{font-size:0.85rem;margin:4px 0;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.old-price{text-decoration:line-through;color:#999;}
+.current-price{font-weight:700;}
+.shipping{color:green;}
+.meta{font-size:0.75rem;margin:4px 0;}
+.description{font-size:0.85rem;color:#555;margin:6px 0;}
+.detail-link{font-size:0.75rem;color:var(--blue);text-decoration:none;}
+.action{flex:0 0 60px;display:flex;align-items:center;justify-content:center;}
+.heart{font-size:1.2rem;cursor:pointer;}
